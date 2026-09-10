@@ -1,5 +1,5 @@
 def f(x, y):
-    # TODO: Implement the function to calculate the sum of squares
+    # TODO: 
     total = 0
    
     total= x**2 + y**2
