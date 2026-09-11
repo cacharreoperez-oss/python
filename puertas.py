@@ -1,6 +1,8 @@
 puertas=[1,0,0,1,0,2,0,2,2,1,0,0,3,0,0,0,3]
 longitud = len(puertas)
 contador = 0
+indice = []
+proceso = 0
 class Puerta:
     def __init__(self, id, frecuencia):
         self.id = id
@@ -15,7 +17,22 @@ for door in puertas:
     puerta = Puerta(contador, door)
     contador += 1
     print(f'Puerta {puerta.id}: Estado: {puerta.estado}, Frecuencia: {puerta.frecuencia}')  
-    
+
+ for door in puertas:
+    if door > 0:
+        indice.append(contador)
+        proceso += 1
+    if proceso == 2:
+        if puertas[indice[0]] == puertas[indice[1]]:
+            posiciones = (puertas[indice[0]]- puertas[indice[1]])-1
+            for i in range(posiciones):
+                Puerta.cambiar_estado(puerta,puertas[indice[0]] )
+
+  
+        
+    contador += 1
+       
+
 
     
                 
