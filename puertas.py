@@ -1,9 +1,9 @@
 # Frecuencia de cada puerta del pasillo.
 puertas=[1,0,0,1,0,2,0,2,2,1,0,0,3,0,0,0,3]
 longitud = len(puertas)
-contador = 0
-indice = []
-proceso = 0
+contador = 0 # saca los indices de puertas
+indice = [] # guadamos los indices de las puertas que tienen frecuencia
+proceso = 0 # idica el proceso de activacion de puertas
 # Lista donde se guardan las instancias de Puerta.
 puertas_obj = []
 
@@ -29,7 +29,11 @@ for door in puertas:
 
 contador = 0
 # Guarda las posiciones de las puertas que tienen frecuencia.
-indice = [i for i, frecuencia in enumerate(puertas) if frecuencia > 0]
+indice = []
+for i in range(len(puertas)):
+    frecuencia = puertas[i]
+    if frecuencia > 0:
+        indice.append(i)
 
 # Compara cada pareja consecutiva de puertas activas.
 for inicio, fin in zip(indice, indice[1:]):
