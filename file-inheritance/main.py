@@ -37,7 +37,6 @@ class MediaFile(File):
 
 
 
-
 class VideoFile(MediaFile):
     def __init__(self, path: str, codex: str, geoloc: tuple, duration: int, dimension: tuple):
         super().__init__(path, codex, geoloc, duration)
