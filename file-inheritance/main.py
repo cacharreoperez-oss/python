@@ -4,18 +4,19 @@ class File:
         self.content = []
 
     def add_content(self, content):
-        if isinstance(content, list):
-            self.content.extend(content)
-        else:
-            self.content.append(content)
+        self.content.append(content)
 
     @property
     def size(self):
-        return sum(len(item) for item in self.content)
+        total = 0
+        for item in self.content:
+            total += len(item)
+        return total
 
     @property
     def info(self):
         return f"{self.path} [size={self.size}B]"
+
 
 
 class MediaFile(File):
@@ -33,6 +34,8 @@ class MediaFile(File):
             f"Geolocalization: {self.geoloc}\n"
             f"Duration: {self.duration}s"
         )
+
+
 
 
 class VideoFile(MediaFile):
