@@ -6,7 +6,6 @@ Ha de tener un método que calcule el área y otro para el perímetro.
 Implementar dos objetos de la clase y añadirle a cada uno de ellos 3 polígonos.
 Mostrar para cada agregado: el tipo de polígono, su perímetro y área.
 '''
-
 from math import pi, tan
 
 
@@ -118,4 +117,5 @@ agregado_2.agregar(Cuadrado(5))
 
 agregado_1.mostrar()
 agregado_2.mostrar()
+
 
