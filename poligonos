@@ -1,0 +1,111 @@
+'''
+Ejercicio: Hacer una clase que mantenga un agregado de polígonos regulares. Los polígonos pueden ser al menos: triángulos, cuadrados, rectángulos, pentágonos y círculos. 
+Para cada polígono se ha de guardar el número de lados o su radio y los datos necesarios para calcular el área y el perímetro.
+Ha de tener un método que calcule el área y otro para el perímetro.
+Implementar dos objetos de la clase y añadirle a cada uno de ellos 3 polígonos.
+Mostrar para cada agregado: el tipo de polígono , su perímetro y área
+
+'''
+
+class Poligono:
+    def __init__(self, tipo, lados, radio):
+        self.tipo = tipo
+        self.lados = lados
+        self.radio = radio
+
+
+
+class Triangulo(Poligono):
+    def __init__(self, lados):
+        super().__init__("triangulo", lados, None)
+
+    def area(self):
+        return (3 ** 0.5 / 4) * (self.lados ** 2)
+
+    def perimetro(self):
+        return 3 * self.lados
+
+class Cuadrado(Poligono):
+    def __init__(self, lados):
+        super().__init__("cuadrado", lados, None)
+
+    def area(self):
+        return self.lados ** 2
+
+    def perimetro(self):
+        return 4 * self.lados
+
+class Rectangulo(Poligono):
+    def __init__(self, lados, lado_mayor, lado_menor):
+        super().__init__("rectangulo", lados, None)
+        self.lado_mayor = lado_mayor
+        self.lado_menor = lado_menor
+
+    def area(self):
+        return self.lado_mayor * self.lado_menor
+
+    def perimetro(self):
+        return 2 * (self.lado_mayor + self.lado_menor)
+
+
+
+rectangulo = Rectangulo([4, 6, 3], 6, 4) 
+cuadrado = Cuadrado(5)  
+triangulo = Triangulo(3)
+
+print (rectangulo.area())
+print (rectangulo.perimetro())
+
+''''
+print (cuadrado.area())
+print (cuadrado.perimetro())
+print (triangulo.area())
+print (triangulo.perimetro())
+
+'''
+
+
+
+
+           
+
+'''
+class AgregadoPoligonos:
+    def __init__(self):
+        self.poligonos = []
+
+    def agregar_poligono(self, poligono):
+        self.poligonos.append(poligono)
+
+    def mostrar_poligonos(self):
+        for poligono in self.poligonos:
+            print(f"Tipo: {poligono.tipo}, Perímetro: {poligono.perimetro()}, Área: {poligono.area()}")
+
+
+
+    def area(self):
+        if self.tipo == "triangulo":
+            return (3 ** 0.5 / 4) * (self.medida ** 2)
+        elif self.tipo == "cuadrado":
+            return self.medida ** 2
+        elif self.tipo == "rectangulo":
+            return self.medida[0] * self.medida[1]
+        elif self.tipo == "pentagono":
+            return (5 / 4) * (self.medida ** 2) * (3 ** 0.5)
+        elif self.tipo == "circulo":
+            import math
+            return math.pi * (self.medida ** 2)
+
+    def perimetro(self):
+        if self.tipo == "triangulo":
+            return 3 * self.medida
+        elif self.tipo == "cuadrado":
+            return 4 * self.medida
+        elif self.tipo == "rectangulo":
+            return 2 * (self.medida[0] + self.medida[1])
+        elif self.tipo == "pentagono":
+            return 5 * self.medida
+        elif self.tipo == "circulo":
+            import math
+            return 2 * math.pi * self.medida
+'''
